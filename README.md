@@ -132,4 +132,4 @@ outputs/                 results.md, tables/, figures/
 - van Kesteren & Bergkamp (2023). Bayesian analysis of F1 race results. *J. Quant. Analysis in Sports.*
 - Heilmeier, Graf & Lienkamp (2018). A race simulation for strategy decisions in circuit motorsports. *IEEE ITSC.*
 - Hernán & Robins (2020). *Causal Inference: What If.*
-- Motorsport Strategy Lab, Kaggle (IMSA lap data) · FIA Driver Categorisation.
+- Recent work on driver vs car performance: Rane (2025), arXiv:2508.00200 · Lindner et al. (2026), arXiv:2608.04629 · Fry et al. (2026), arXiv:2603.15192.
