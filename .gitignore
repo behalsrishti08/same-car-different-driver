@@ -1,0 +1,16 @@
+# Raw Kaggle data: download it yourself (see README); don't re-publish it here
+data/raw/*.csv
+data/raw/*.zip
+
+# Big generated files (re-create with: python run_analysis.py)
+outputs/tables/09_bootstrap_draws.csv
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Mac
+.DS_Store
