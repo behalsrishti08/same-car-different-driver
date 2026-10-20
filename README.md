@@ -44,6 +44,10 @@ All numbers come from `outputs/results.md`. Re-running the analysis regenerates 
 | **Gold vs Platinum, same car** | **+0.03 s/lap** (95% bootstrap CI −0.07 to +0.13; placebo p = 0.39) |
 | Silver vs Platinum, same car | +1.17 s/lap, but **one driver, one race** (case study) |
 
+## Why this matters beyond racing
+
+Judging humans against machines fairly means holding everything else fixed. Waymo applied the same idea to road safety: it compared its driverless cars with human drivers on the same kinds of roads and found **96% fewer injury crashes at intersections** over 56.7 million miles ([Kusano et al., 2025](https://doi.org/10.1080/15389588.2025.2499887)). This project asks the mirror question in racing: when the machine is held fixed, how much does the human rating still matter?
+
 How the estimate changes as each control is added (M0 raw → M4 final model):
 
 ![Effect as controls are added](outputs/figures/fig4_ablation.png)
@@ -127,9 +131,14 @@ outputs/                 results.md, tables/, figures/
 
 ## Data and references
 
-- Data: Motorsport Strategy Lab, *Derived data*, Kaggle (IMSA files). FIA Driver Categorisation.
-- Bell, Smith, Sabel & Jones (2016). Formula for success: multilevel modelling of F1 driver and constructor performance. *J. Quant. Analysis in Sports.*
-- van Kesteren & Bergkamp (2023). Bayesian analysis of F1 race results. *J. Quant. Analysis in Sports.*
+**Data:** Motorsport Strategy Lab, *Derived data*, [Kaggle](https://www.kaggle.com/datasets/mohammedredamedjadj/motorsport-strategy-lab-derived) (IMSA files) · FIA Driver Categorisation.
+
+**Papers that shaped this project:**
+- Bell, Smith, Sabel & Jones (2016). [Formula for success: Multilevel modelling of Formula One driver and constructor performance, 1950–2014](https://doi.org/10.1515/jqas-2015-0050). *Journal of Quantitative Analysis in Sports.*
+- van Kesteren & Bergkamp (2023). [Bayesian analysis of Formula One race results: disentangling driver skill and constructor advantage](https://arxiv.org/abs/2203.08489). *Journal of Quantitative Analysis in Sports.*
 - Heilmeier, Graf & Lienkamp (2018). A race simulation for strategy decisions in circuit motorsports. *IEEE ITSC.*
-- Hernán & Robins (2020). *Causal Inference: What If.*
-- Recent work on driver vs car performance: Rane (2025), arXiv:2508.00200 · Lindner et al. (2026), arXiv:2608.04629 · Fry et al. (2026), arXiv:2603.15192.
+- Rane (2025). [Predicting Formula 1 race outcomes: decomposing the roles of drivers and constructors through linear modeling](https://arxiv.org/abs/2508.00200). arXiv.
+- Fry, Fanzon, Austin & Brighton (2026). [Benchmarking Formula 1 results using a normal model](https://arxiv.org/abs/2603.15192). arXiv.
+- Lindner, Almeida, Baştürk & Smeekes (2026). [Drivers of success: a Bayesian state-space model to disentangling latent driver and constructor abilities in Formula One](https://ideas.repec.org/p/arx/papers/2608.04629.html). arXiv.
+- Kusano, Scanlon, Chen, McMurry, Gode & Victor (2025). [Comparison of Waymo rider-only crash rates by crash type to human benchmarks at 56.7 million miles](https://doi.org/10.1080/15389588.2025.2499887). *Traffic Injury Prevention.*
+- Hernán & Robins (2020). *Causal Inference: What If.* Chapman & Hall/CRC.
