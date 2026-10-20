@@ -1,0 +1,7 @@
+step,laps,share_of_all
+"All laps (top class, named drivers)",82348,1.0
+Green-flag laps only (no cautions),70234,0.853
+Remove pit-in laps,68574,0.833
+Remove out-laps (first lap of each stint),68295,0.829
+Remove laps slower than 107% of race median,64068,0.778
+Drivers with at least 10 clean laps in a car,64001,0.777

@@ -1,0 +1,3 @@
+rating,real_effect,placebo_mean,placebo_sd,permutation_p
+Gold,0.047,0.0042,0.0533,0.3852
+Silver,1.075,0.0682,0.2875,0.004

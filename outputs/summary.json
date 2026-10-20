@@ -1,0 +1,52 @@
+{
+  "data": {
+    "laps": 64001,
+    "races": 33,
+    "car_races": 345,
+    "drivers": 84,
+    "drivers_with_rating": 79,
+    "most_common_drivers_per_car": 2,
+    "weather_missing_share": 0.46
+  },
+  "identification": {
+    "rated_laps": 63237,
+    "unrated_laps_dropped": 764,
+    "unrated_drivers": [
+      "Ben Keating",
+      "Connor Zilisch",
+      "Felix Rosenqvist",
+      "Max Esterson",
+      "Nico Pino"
+    ],
+    "car_races_with_2plus_tiers": 128,
+    "car_races_total": 345,
+    "laps_by_rating": {
+      "Platinum": 51635,
+      "Gold": 11507,
+      "Silver": 95,
+      "Bronze": 0
+    },
+    "drivers_by_rating": {
+      "Platinum": 60,
+      "Gold": 18,
+      "Silver": 1,
+      "Bronze": 0
+    }
+  },
+  "teammate_gaps": {
+    "n_gaps": 482,
+    "median_s": 0.357,
+    "iqr_low_s": 0.164,
+    "iqr_high_s": 0.635,
+    "share_under_0_5s": 0.643
+  },
+  "car_vs_driver": {
+    "between_car_share": 0.533,
+    "within_car_share": 0.467
+  },
+  "tyre_s_per_lap": 0.005789523325462217,
+  "main_effects_s": {
+    "Gold": 0.0294,
+    "Silver": 1.1666
+  }
+}
