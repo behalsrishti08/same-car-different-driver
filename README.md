@@ -1,10 +1,35 @@
 # Same Car, Different Driver
 
-**Do official FIA driver ratings (Platinum, Gold, Silver, Bronze) show up in lap times when the car is the same?**
+**Do official FIA driver ratings show up in lap times when two drivers share the same car?**
+A statistical analysis of 64,000 IMSA endurance-racing laps (2023–2026).
 
-In endurance racing, two to four drivers share one car in the same race. Comparing teammates holds the car, team, setup, track and weather constant, so whatever gap remains is the driver. This project measures that gap for each rating, lap by lap, using IMSA WeatherTech GTP races from 2023–2026.
+![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-data%20cleaning-150458?logo=pandas)
+![statsmodels](https://img.shields.io/badge/statsmodels-mixed--effects-4B8BBE)
+![tests](https://img.shields.io/badge/tests-7%20passing-2ea44f)
 
 **Srishti Behal**
+
+## In 30 seconds
+
+- **Question.** Racing drivers are officially rated Platinum, Gold, Silver or Bronze. Do lower-rated drivers really lap slower, or do they just drive slower cars?
+- **Approach.** In endurance racing, 2–4 drivers share one car in the same race. Comparing teammates holds the car, team and conditions constant, so the remaining gap is the driver. A mixed-effects model estimates it, with bootstrap error bars, leave-one-race-out validation and a placebo test.
+- **Finding.** Gold drivers look 0.17 s/lap slower than Platinum when compared across different cars. Against a teammate in the **same car**, the gap is **0.03 s/lap and not statistically significant** (95% CI −0.07 to +0.13). Most of the apparent rating gap is the car, not the driver.
+
+![Headline result](outputs/figures/fig0_headline.png)
+
+## What this project shows I can do
+
+| Skill | Where |
+|---|---|
+| Clean and audit a messy real dataset (373k laps), with every removed lap accounted for | `src/scd/data.py`, cleaning funnel figure |
+| Catch data-quality problems: 5 drivers were stored under two spellings, so 89 names were really 84 people | `data/driver_aliases.csv` |
+| Design a fair comparison that removes a confounder (the car) by construction | within-car demeaning in `src/scd/model.py` |
+| Fit and explain a linear mixed-effects model, adding controls in blocks to show what each explains | `src/scd/model.py`, ablation figure |
+| Validate honestly: race-level bootstrap, leave-one-race-out, permutation placebo test | `src/scd/evaluate.py` |
+| Prove the method works by testing it on simulated data with a known answer | `tests/test_pipeline.py` |
+| Build a reproducible pipeline: one command from raw files to every table, figure and number | `run_analysis.py` |
+| Report limitations plainly (small Silver sample, ratings changing over time, observational data) | Limitations below |
 
 ## Main results
 
@@ -19,7 +44,7 @@ All numbers come from `outputs/results.md`. Re-running the analysis regenerates 
 | **Gold vs Platinum, same car** | **+0.03 s/lap** (95% bootstrap CI −0.07 to +0.13; placebo p = 0.39) |
 | Silver vs Platinum, same car | +1.17 s/lap, but **one driver, one race** (case study) |
 
-**Interpretation.** Compared within the same race but not the same car, Gold drivers look 0.17 s/lap slower than Platinum. That gap almost disappears once the comparison is between teammates in the **same car**. In the top class, the rating difference between Gold and Platinum is mostly explained by the car the driver is in, not by lap pace.
+How the estimate changes as each control is added (M0 raw → M4 final model):
 
 ![Effect as controls are added](outputs/figures/fig4_ablation.png)
 

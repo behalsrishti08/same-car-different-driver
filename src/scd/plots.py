@@ -95,6 +95,31 @@ def ablation_plot(abl: pd.DataFrame, out: Path) -> Path:
     return _save(fig, out)
 
 
+def hero(abl: pd.DataFrame, bci: pd.DataFrame, out: Path) -> Path:
+    """The one-picture summary for the README: the Gold-Platinum gap shrinks to
+    ~zero once teammates in the same car are compared."""
+    a = abl[abl["rating"] == "Gold"].set_index("model")
+    b = bci.set_index("rating").loc["Gold"]
+    rows = [
+        ("Same race,\ndifferent cars", a.loc["M1 same race", "effect"], a.loc["M1 same race", "ci_low"], a.loc["M1 same race", "ci_high"], GREY),
+        ("Same car\n(teammates)", a.loc["M2 same car", "effect"], a.loc["M2 same car", "ci_low"], a.loc["M2 same car", "ci_high"], GREY),
+        ("Same car + tyres +\ndriver effects (final)", a.loc["M4 + driver (mixed)", "effect"], b["ci_low"], b["ci_high"], ACCENT),
+    ]
+    fig, ax = plt.subplots(figsize=(8, 3.4))
+    y = np.arange(len(rows))[::-1]
+    for yi, (label, v, lo, hi, c) in zip(y, rows):
+        ax.barh(yi, v, color=c, alpha=0.85, height=0.55)
+        ax.errorbar(v, yi, xerr=[[v - lo], [hi - v]], fmt="none", ecolor="black", capsize=4, lw=1)
+        ax.text(max(hi, v) + 0.01, yi, f"+{v:.2f} s", va="center", fontsize=11, fontweight="bold" if c == ACCENT else "normal")
+    ax.set_yticks(y, [r[0] for r in rows])
+    ax.axvline(0, color="black", lw=0.8)
+    ax.set_xlabel("Gold driver's lap-time gap vs Platinum (seconds per lap, 95% CI)")
+    ax.set_xlim(-0.12, 0.34)
+    ax.set_title("In the same car, the Gold vs Platinum gap shrinks from 0.17 s to a non-significant 0.03 s",
+                 loc="left", fontsize=11.5)
+    return _save(fig, out)
+
+
 def placebo_plot(fake: pd.DataFrame, real: pd.Series, out: Path) -> Path:
     tiers = [t for t in real.index if t in fake]
     fig, axes = plt.subplots(1, len(tiers), figsize=(4.6 * len(tiers), 3.2), squeeze=False)

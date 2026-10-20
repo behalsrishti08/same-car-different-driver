@@ -91,6 +91,7 @@ def main() -> None:
     plots.ablation_plot(abl, figs / "fig4_ablation.png")
     plots.placebo_plot(fake, m3.params[tiers], figs / "fig5_placebo.png")
     plots.loro_plot(loro, figs / "fig6_leave_one_race_out.png")
+    plots.hero(abl, bci, figs / "fig0_headline.png")
 
     step("Writing results.md")
     write_results(args, info, ident, audit, raw, gsum, split, tyre, psum, abl, abl_pct, bci, loro, pv, real)
