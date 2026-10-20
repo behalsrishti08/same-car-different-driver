@@ -44,9 +44,13 @@ All numbers come from `outputs/results.md`. Re-running the analysis regenerates 
 | **Gold vs Platinum, same car** | **+0.03 s/lap** (95% bootstrap CI −0.07 to +0.13; placebo p = 0.39) |
 | Silver vs Platinum, same car | +1.17 s/lap, but **one driver, one race** (case study) |
 
-## Why this matters beyond racing
+## Why this matters
 
-Judging humans against machines fairly means holding everything else fixed. Waymo applied the same idea to road safety: it compared its driverless cars with human drivers on the same kinds of roads and found **96% fewer injury crashes at intersections** over 56.7 million miles ([Kusano et al., 2025](https://doi.org/10.1080/15389588.2025.2499887)). This project asks the mirror question in racing: when the machine is held fixed, how much does the human rating still matter?
+- **For racing.** Series rules force teams to field lower-rated drivers on the assumption that ratings track pace. This result suggests that, in the top class, the Gold vs Platinum difference barely shows on the stopwatch once the car is held fixed: evidence for reviewing how ratings are set, and for how teams pick line-ups and plan stints.
+- **For any human-vs-machine judgment.** "Was it the driver or the vehicle?" sits behind autonomous-vehicle safety, insurance and crash investigation. Waymo used the same fixed-setting logic to find **96% fewer injury crashes at intersections** than human drivers over 56.7 million miles ([Kusano et al., 2025](https://doi.org/10.1080/15389588.2025.2499887)).
+- **For AI evaluation.** When a person with an AI tool does better, is it the person or the model? Judging AI fairly needs the same design used here: hold the system fixed, then measure the person (or the reverse).
+
+The evidence covers Gold vs Platinum in the GTP class; Silver and Bronze could not be estimated (see Limitations).
 
 How the estimate changes as each control is added (M0 raw → M4 final model):
 
