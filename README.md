@@ -6,7 +6,7 @@ A statistical analysis of 64,000 IMSA endurance-racing laps (2023–2026).
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)
 ![pandas](https://img.shields.io/badge/pandas-data%20cleaning-150458?logo=pandas)
 ![statsmodels](https://img.shields.io/badge/statsmodels-mixed--effects-4B8BBE)
-![tests](https://img.shields.io/badge/tests-7%20passing-2ea44f)
+[![Tests](https://github.com/behalsrishti08/same-car-different-driver/actions/workflows/python-app.yml/badge.svg)](https://github.com/behalsrishti08/same-car-different-driver/actions/workflows/python-app.yml)
 
 **Srishti Behal**
 
